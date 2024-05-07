@@ -31,3 +31,7 @@ jobs:
     - name: Test
       run: |
        go test -v ./...
+
+    - name: Create image
+      run: |
+       docker build . -t dmytromolchanov/mysql-fiber-go
