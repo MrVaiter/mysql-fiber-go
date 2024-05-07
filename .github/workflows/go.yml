@@ -34,4 +34,6 @@ jobs:
 
     - name: Create image
       run: |
-       docker build . -t dmytromolchanov/mysql-fiber-go
+       docker build . -t ${{ secrets.DOCKERHUB_USERNAME }}/mysql-fiber-go
+       echo "${{ secrets.DOCKERHUB_PASSWORD }}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
+       docker push ${{ secrets.DOCKERHUB_USERNAME }}/mysql-fiber-go
