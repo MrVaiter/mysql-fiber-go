@@ -14,19 +14,19 @@ RUN go mod download
 COPY . .
 
 # Збираємо додаток
-RUN go build ./cmd/mysql-controller/main.go 
+RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o /app/main ./cmd/mysql-controller/main.go 
 
 # Використовуємо офіційний образ golang для стадії запуску
-FROM golang:1.22.2-alpine 
+FROM alpine:latest  
 
 # Встановлюємо робочий каталог в контейнері
 WORKDIR /app
 
 # Копіюємо бінарник з стадії збірки
-COPY --from=build ./app/main ./main
+COPY --from=build /app/main .
 
 # Відкриваємо порт 3001
 EXPOSE 3001
 
 # Команда для запуску додатку
-CMD ["./app", "/main"]
+CMD ["/app/main"]
