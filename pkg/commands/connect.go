@@ -11,7 +11,7 @@ func DBConnect() (*sql.DB, error) {
 		User:   "root",
 		Passwd: "root",
 		Net:    "tcp",
-		Addr:   "localhost:3306",
+		Addr:   "127.0.0.1:3306",
 		DBName: "to-do-list",
 	}
 
