@@ -2,16 +2,23 @@ package commands
 
 import (
 	"database/sql"
+	"mysql-controller/pkg/env"
 
 	"github.com/go-sql-driver/mysql"
 )
 
 func DBConnect() (*sql.DB, error) {
+
+	host := env.Get("DB_HOST", "localhost")
+	port := env.Get("DB_PORT", "3306")
+
+	addr := host + ":" + port
+
 	cfg := mysql.Config{
 		User:   "root",
 		Passwd: "root",
 		Net:    "tcp",
-		Addr:   "127.0.0.1:3306",
+		Addr:   addr,
 		DBName: "to-do-list",
 	}
 

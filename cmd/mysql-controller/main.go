@@ -2,6 +2,7 @@ package main
 
 import (
 	"mysql-controller/pkg/routes"
+	"mysql-controller/pkg/env"
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cors"
@@ -10,8 +11,11 @@ import (
 func main() {
 	app := fiber.New()
 
+	host := env.Get("UI_HOST", "localhost")
+	port := env.Get("UI_PORT", "3000")
+
 	app.Use(cors.New(cors.Config{
-		AllowOrigins:     "http://localhost:3000",
+		AllowOrigins:     "http://" + host + ":" + port,
 		AllowHeaders:     "Origin, Content-Type, Accept",
 		AllowCredentials: true,
 	}))
