@@ -29,4 +29,4 @@ COPY --from=build ./app/main ./main
 EXPOSE 3001
 
 # Команда для запуску додатку
-CMD ["./main"]
+CMD ["./app/main"]
