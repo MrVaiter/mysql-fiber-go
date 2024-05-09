@@ -15,7 +15,7 @@ func main() {
 	// port := env.Get("UI_PORT", "3000")
 
 	app.Use(cors.New(cors.Config{
-		AllowOrigins:     "http://ui-service.to-do-list.svc.cluster.local:3000",
+		AllowOrigins:     "ui-service.to-do-list.svc.cluster.local:3000",
 		AllowHeaders:     "Origin, Content-Type, Accept",
 		AllowCredentials: true,
 	}))
