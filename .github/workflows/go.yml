@@ -19,7 +19,7 @@ jobs:
     - name: Set up Go
       uses: actions/setup-go@v4
       with:
-        go-version: '1.22.2'
+        go-version: '1.18.x'
 
     - name: Set up database
       run: docker run -d --name mysql -p 3306:3306 dmytromolchanov/custom-mysql
