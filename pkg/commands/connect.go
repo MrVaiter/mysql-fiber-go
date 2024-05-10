@@ -2,6 +2,7 @@ package commands
 
 import (
 	"database/sql"
+	"fmt"
 	"mysql-controller/pkg/env"
 
 	"github.com/go-sql-driver/mysql"
@@ -13,6 +14,8 @@ func DBConnect() (*sql.DB, error) {
 	port := env.Get("DB_PORT", "3306")
 
 	addr := host + ":" + port
+
+	fmt.Print(addr)
 
 	cfg := mysql.Config{
 		User:   "root",
