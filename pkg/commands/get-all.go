@@ -2,7 +2,6 @@ package commands
 
 import (
 	"encoding/json"
-	"fmt"
 
 	"mysql-controller/pkg/types"
 
@@ -10,9 +9,6 @@ import (
 )
 
 func GetAll(c *fiber.Ctx) error {
-
-	origin := c.Get("Origin")
-    fmt.Println("Request made from:", origin)
 
 	db, err := DBConnect()
 	if err != nil {
