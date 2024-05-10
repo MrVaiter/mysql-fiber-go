@@ -28,9 +28,9 @@ jobs:
       run: |
        go build -v ./...
 
-    # - name: Test
-    #   run: |
-    #    go test -v ./...
+    - name: Test
+      run: |
+       go test -v ./...
 
     - name: Create image
       run: |
