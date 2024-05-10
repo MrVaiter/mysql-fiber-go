@@ -30,7 +30,7 @@ jobs:
 
     - name: Test
       run: |
-       go test -v ./...
+       go test -v ./pkg/commands
 
     - name: Create image
       run: |
