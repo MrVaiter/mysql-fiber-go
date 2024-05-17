@@ -5,3 +5,7 @@ type Task struct {
 	TaskName string
 	Status   bool
 }
+
+type Test struct {
+	test string
+}
